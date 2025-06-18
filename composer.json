@@ -24,6 +24,8 @@
     }
   },
   "require-dev": {
+    "ekino/phpstan-banned-code": "^3.0",
+    "phpstan/phpstan": "^2.1",
     "symplify/easy-coding-standard": "^12.5"
   },
   "scripts": {
@@ -34,6 +36,11 @@
     ],
     "cs-fix": [
       "@codestyle-fix"
+    ],
+    "phpstan-clear-cache": "vendor/bin/phpstan clear-result-cache",
+    "phpstan": [
+      "@phpstan-clear-cache",
+      "vendor/bin/phpstan analyze -c phpstan.neon --no-interaction --ansi --no-progress --memory-limit 1G"
     ]
   }
 }

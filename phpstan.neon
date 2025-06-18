@@ -1,0 +1,44 @@
+parameters:
+    phpVersion: 80100
+    reportUnmatchedIgnoredErrors: true
+
+    fileExtensions:
+    	- php
+
+    level: max
+
+    scanDirectories:
+        - src
+    paths:
+        - src
+
+    banned_code:
+        nodes:
+            -
+                type: Stmt_Echo
+                functions: null
+
+            -
+                type: Expr_Eval
+                functions: null
+
+            -
+                type: Expr_Exit
+                functions: null
+
+            -
+                type: Expr_FuncCall
+                functions:
+                    - debug_backtrace
+                    - passthru
+                    - phpinfo
+                    - print_r
+                    - shell_exec
+                    - var_dump
+                    - var_export
+
+        # enable detection of `use Tests\Foo\Bar` in a non-test file
+        use_from_tests: true
+
+includes:
+    - vendor/ekino/phpstan-banned-code/extension.neon

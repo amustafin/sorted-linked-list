@@ -1,0 +1,13 @@
+services:
+  php81:
+    image: php81
+    build:
+      context: .
+      dockerfile: docker/php81/Dockerfile
+    volumes:
+      - .:/src
+    command: tail -f /dev/stdout
+    working_dir: /src
+    user: docker-user
+    tty: true
+

@@ -7,10 +7,9 @@ parameters:
 
     level: max
 
-    scanDirectories:
-        - src
     paths:
         - src
+        - tests
 
     banned_code:
         nodes:

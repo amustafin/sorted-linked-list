@@ -29,4 +29,7 @@ cs-fix: codestyle-fix
 phpstan:
 	docker compose exec php81 composer phpstan
 
-verify: codestyle phpstan
+test:
+	docker compose exec php81 composer test
+
+verify: codestyle phpstan test

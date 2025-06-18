@@ -22,5 +22,18 @@
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
+  },
+  "require-dev": {
+    "symplify/easy-coding-standard": "^12.5"
+  },
+  "scripts": {
+    "codestyle": "vendor/bin/ecs check",
+    "codestyle-fix": "vendor/bin/ecs check --fix",
+    "cs": [
+      "@codestyle"
+    ],
+    "cs-fix": [
+      "@codestyle-fix"
+    ]
   }
 }

@@ -15,3 +15,13 @@ install-dependencies:
 	docker compose exec php81 composer install
 
 reinstall-dependencies: remove-dependencies install-dependencies
+
+codestyle:
+	docker compose exec php81 composer codestyle
+
+cs: codestyle
+
+codestyle-fix:
+	docker compose exec php81 composer codestyle-fix
+
+cs-fix: codestyle-fix

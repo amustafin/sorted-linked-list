@@ -7,6 +7,7 @@ use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
 use PhpCsFixer\Fixer\Operator\TernaryToNullCoalescingFixer;
 use Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
+use Symplify\EasyCodingStandard\ValueObject\Option;
 
 return ECSConfig::configure()
     ->withPreparedSets(
@@ -25,7 +26,7 @@ return ECSConfig::configure()
         'php',
     ])
     ->withSpacing(
-        indentation: '    ',
+        indentation: Option::INDENTATION_SPACES,
         lineEnding: "\n",
     )
     ->withConfiguredRule(

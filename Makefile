@@ -32,4 +32,10 @@ phpstan:
 test:
 	docker compose exec php81 composer test
 
-verify: codestyle phpstan test
+verify-dependencies:
+	docker compose exec php81 composer audit
+	docker compose exec php81 composer verify-dependencies
+
+vd: verify-dependencies
+
+verify: verify-dependencies codestyle phpstan test

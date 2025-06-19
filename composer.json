@@ -15,25 +15,31 @@
   },
   "autoload": {
     "psr-4": {
-      "Mustafin\\SLL\\": "src/",
+      "Mustafin\\SLL\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "Mustafin\\SLL\\Tests\\": "tests/"
     }
   },
   "config": {
     "sort-packages": true,
-    "discard-changes": true,
-    "allow-plugins": {
-      "dealerdirect/phpcodesniffer-composer-installer": true
-    }
+    "discard-changes": true
   },
   "require-dev": {
     "ekino/phpstan-banned-code": "^3.0",
     "phpstan/phpstan": "^2.1",
     "phpunit/phpunit": "^10.5",
+    "shipmonk/composer-dependency-analyser": "^1.8",
     "symplify/easy-coding-standard": "^12.5"
   },
   "scripts": {
-    "codestyle": "vendor/bin/ecs check",
+    "run-validate": "composer validate --no-check-publish",
+    "codestyle": [
+      "@run-validate",
+      "vendor/bin/ecs check"
+    ],
     "codestyle-fix": "vendor/bin/ecs check --fix",
     "cs": [
       "@codestyle"
@@ -46,6 +52,10 @@
       "@phpstan-clear-cache",
       "vendor/bin/phpstan analyze -c phpstan.neon --no-interaction --ansi --no-progress --memory-limit 1G"
     ],
-    "test": "vendor/bin/phpunit tests"
+    "test": "vendor/bin/phpunit tests",
+    "verify-dependencies": "vendor/bin/composer-dependency-analyser",
+    "vd": [
+      "@verify-dependencies"
+    ]
   }
 }

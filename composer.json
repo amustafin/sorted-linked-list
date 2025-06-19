@@ -1,7 +1,9 @@
 {
   "name": "mustafin/sorted-linked-list",
   "description": "Utils for sorted linked list",
-  "license": "proprietary",
+  "license": [
+    "MIT"
+  ],
   "authors": [
     {
       "name": "Artem Mustafin",
